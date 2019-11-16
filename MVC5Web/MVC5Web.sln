@@ -4,12 +4,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC5Web", "MVC5Web\MVC5Web.csproj", "{D16040D5-FF4D-4FC3-AC45-96EC067E95FD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3C87A43C-7603-4A3A-A537-374EAC03275A} = {3C87A43C-7603-4A3A-A537-374EAC03275A}
+		{09A3B862-9E35-4AD5-B32E-89FA15D2A5AD} = {09A3B862-9E35-4AD5-B32E-89FA15D2A5AD}
+		{A281A6E6-209F-479E-B4E9-A0D946C82070} = {A281A6E6-209F-479E-B4E9-A0D946C82070}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{09A3B862-9E35-4AD5-B32E-89FA15D2A5AD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuisnessLayer", "BuisnessLayer\BuisnessLayer.csproj", "{A281A6E6-209F-479E-B4E9-A0D946C82070}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3C87A43C-7603-4A3A-A537-374EAC03275A} = {3C87A43C-7603-4A3A-A537-374EAC03275A}
+		{09A3B862-9E35-4AD5-B32E-89FA15D2A5AD} = {09A3B862-9E35-4AD5-B32E-89FA15D2A5AD}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{3C87A43C-7603-4A3A-A537-374EAC03275A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{09A3B862-9E35-4AD5-B32E-89FA15D2A5AD} = {09A3B862-9E35-4AD5-B32E-89FA15D2A5AD}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
