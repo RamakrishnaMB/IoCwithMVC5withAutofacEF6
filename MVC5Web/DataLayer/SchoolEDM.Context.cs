@@ -12,6 +12,8 @@ namespace DataLayer
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class SchoolEntities : DbContext
     {
@@ -30,5 +32,10 @@ namespace DataLayer
         public virtual DbSet<tblStandard> tblStandards { get; set; }
         public virtual DbSet<tblStudent> tblStudents { get; set; }
         public virtual DbSet<tblUser> tblUsers { get; set; }
+    
+        public virtual ObjectResult<uspDashboard_Result> uspDashboard()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspDashboard_Result>("uspDashboard");
+        }
     }
 }

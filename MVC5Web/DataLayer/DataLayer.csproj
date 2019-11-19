@@ -86,6 +86,9 @@
     <Compile Include="tblUser.cs">
       <DependentUpon>SchoolEDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="uspDashboard_Result.cs">
+      <DependentUpon>SchoolEDM.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

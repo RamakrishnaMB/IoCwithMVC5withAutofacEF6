@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SchoolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SchoolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -117,6 +117,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="uspDashboard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="SchoolModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblFee" EntityType="Self.tblFee" Schema="dbo" store:Type="Tables" />
@@ -132,8 +133,7 @@
             <End Role="tblStudent" EntitySet="tblStudent" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SchoolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -267,7 +267,17 @@
             <End Role="tblStandard" EntitySet="tblStandards" />
             <End Role="tblStudent" EntitySet="tblStudents" />
           </AssociationSet>
+          <FunctionImport Name="uspDashboard" ReturnType="Collection(SchoolModel.uspDashboard_Result)" />
         </EntityContainer>
+        <ComplexType Name="uspDashboard_Result">
+          <Property Type="Byte" Name="StandardID" Nullable="false" />
+          <Property Type="Int32" Name="KanNoOfStudents" Nullable="true" />
+          <Property Type="Int32" Name="EngNoOfStudents" Nullable="true" />
+          <Property Type="Int32" Name="KanPaidStudCount" Nullable="true" />
+          <Property Type="Int32" Name="KanDueStudCount" Nullable="true" />
+          <Property Type="Int32" Name="EngPaidStudCount" Nullable="true" />
+          <Property Type="Int32" Name="EngDueStudCount" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -367,6 +377,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="uspDashboard" FunctionName="SchoolModel.Store.uspDashboard">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SchoolModel.uspDashboard_Result">
+                <ScalarProperty Name="StandardID" ColumnName="StandardID" />
+                <ScalarProperty Name="KanNoOfStudents" ColumnName="KanNoOfStudents" />
+                <ScalarProperty Name="EngNoOfStudents" ColumnName="EngNoOfStudents" />
+                <ScalarProperty Name="KanPaidStudCount" ColumnName="KanPaidStudCount" />
+                <ScalarProperty Name="KanDueStudCount" ColumnName="KanDueStudCount" />
+                <ScalarProperty Name="EngPaidStudCount" ColumnName="EngPaidStudCount" />
+                <ScalarProperty Name="EngDueStudCount" ColumnName="EngDueStudCount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
