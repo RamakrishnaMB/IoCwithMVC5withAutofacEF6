@@ -1,13 +1,24 @@
 ﻿using BuisnessLayer.Interface;
-using System;
+using DataLayer.Interface;
+using Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BuisnessLayer.Implementation
 {
     public class DashBoardFeeServices : IDashBoardFeeServices
     {
+        public IRepository<FeeDetails> _repository;
+
+        public DashBoardFeeServices(IRepository<FeeDetails> repository)
+        {
+            _repository = repository;
+        }
+        public List<FeeDetails> GetfeeDetails()
+        {
+            List<FeeDetails> lstFeeDetails = new List<FeeDetails>();
+            lstFeeDetails = _repository.ExecWithStoreProcedure<FeeDetails>("exec SelectAllBooking").ToList();
+            return lstFeeDetails;
+        }
     }
 }

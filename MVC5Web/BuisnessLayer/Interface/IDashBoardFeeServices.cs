@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BuisnessLayer.Interface
 {
+    
     public interface IDashBoardFeeServices
     {
-        
+        List<FeeDetails> GetfeeDetails();
+
     }
 }
