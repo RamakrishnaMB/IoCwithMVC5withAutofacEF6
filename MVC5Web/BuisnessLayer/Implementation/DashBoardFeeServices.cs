@@ -17,7 +17,7 @@ namespace BuisnessLayer.Implementation
         public List<FeeDetails> GetfeeDetails()
         {
             List<FeeDetails> lstFeeDetails = new List<FeeDetails>();
-            lstFeeDetails = _repository.ExecWithStoreProcedure<FeeDetails>("exec SelectAllBooking").ToList();
+            lstFeeDetails = _repository.ExecWithStoreProcedure<FeeDetails>("exec uspDashboard").ToList();
             return lstFeeDetails;
         }
     }

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Models.FeeDetails>
+
+@{
+    ViewBag.Title = "GetFeeDetails";
+}
+
+<h2>GetFeeDetails</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StandardID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KanNoOfStudents)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EngNoOfStudents)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KanPaidStudCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KanDueStudCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EngPaidStudCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EngDueStudCount)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item != null)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StandardID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KanNoOfStudents)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EngNoOfStudents)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KanPaidStudCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KanDueStudCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EngPaidStudCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EngDueStudCount)
+                </td>
+
+            </tr>
+        }
+    }
+
+</table>

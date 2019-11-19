@@ -22,12 +22,12 @@ namespace MVC5Web.Controllers
             return View();
         }
 
-        //public ActionResult GetFeeDetails()
-        //{
-        //    List<FeeDetails> feeDetails = new List<FeeDetails>();
-        //    feeDetails = _IDashBoardFeeServices.GetfeeDetails();
-        //    return View();
-        //}
+        public ActionResult GetFeeDetails()
+        {
+            List<FeeDetails> feeDetails = new List<FeeDetails>();
+            feeDetails = _IDashBoardFeeServices.GetfeeDetails();
+            return View(feeDetails);
+        }
 
         public ActionResult About()
         {
